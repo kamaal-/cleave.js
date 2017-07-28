@@ -58,14 +58,24 @@ DateFormatter.prototype = {
 
                     break;
                 case 'h':
+                    console.log(sub)
                         if (sub === '00') {
                             sub = '01';
-                        } else if (parseInt(sub0, 10) > 1) {
+                        } else if (parseInt(sub0, 10) > 2) {
                             sub = '0' + sub0;
                         } else if (parseInt(sub, 10) > 23) {
                             sub = '23';
                         }
                         break;
+                case 'mm':
+                    if (sub === '00') {
+                        sub = '01';
+                    } else if (parseInt(sub0, 10) > 5) {
+                        sub = '0' + sub0;
+                    } else if (parseInt(sub, 10) > 59) {
+                        sub = '59';
+                    }
+                    break;
                 }
 
 
