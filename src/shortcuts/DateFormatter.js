@@ -57,7 +57,17 @@ DateFormatter.prototype = {
                     }
 
                     break;
+                case 'h':
+                        if (sub === '00') {
+                            sub = '01';
+                        } else if (parseInt(sub0, 10) > 1) {
+                            sub = '0' + sub0;
+                        } else if (parseInt(sub, 10) > 23) {
+                            sub = '23';
+                        }
+                        break;
                 }
+
 
                 result += sub;
 
