@@ -395,6 +395,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var owner = this,
 	            _owner$props2 = owner.props,
 	            value = _owner$props2.value,
+	            component = _owner$props2.component,
 	            options = _owner$props2.options,
 	            onKeyDown = _owner$props2.onKeyDown,
 	            onFocus = _owner$props2.onFocus,
@@ -402,27 +403,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            onChange = _owner$props2.onChange,
 	            onInit = _owner$props2.onInit,
 	            htmlRef = _owner$props2.htmlRef,
-	            propsToTransfer = _objectWithoutProperties(_owner$props2, ['value', 'options', 'onKeyDown', 'onFocus', 'onBlur', 'onChange', 'onInit', 'htmlRef']);
+	            propsToTransfer = _objectWithoutProperties(_owner$props2, ['value', 'component', 'options', 'onKeyDown', 'onFocus', 'onBlur', 'onChange', 'onInit', 'htmlRef']);
 
 
-	        if (this.props.children) {
-	            var childComponent = this.props.children.map(function (child) {
-	                return React.cloneElement(child, _extends({
-	                    ref: htmlRef,
-	                    value: owner.state.value,
-	                    onKeyDown: owner.onKeyDown,
-	                    onChange: owner.onChange,
-	                    onFocus: owner.onFocus,
-	                    onBlur: owner.onBlur
-	                }, propsToTransfer, {
-	                    'data-cleave-ignore': [value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]
-	                }));
-	            });
-	            return React.createElement(
-	                'div',
-	                null,
-	                childComponent
-	            );
+	        if (component) {
+	            return React.createElement('component', _extends({
+	                type: 'text',
+	                ref: htmlRef,
+	                value: owner.state.value,
+	                onKeyDown: owner.onKeyDown,
+	                onChange: owner.onChange,
+	                onFocus: owner.onFocus,
+	                onBlur: owner.onBlur
+	            }, propsToTransfer, {
+	                'data-cleave-ignore': [value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]
+	            }));
 	        }
 
 	        return React.createElement('input', _extends({

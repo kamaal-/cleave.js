@@ -330,22 +330,22 @@ var Cleave = CreateReactClass({
 
     render: function () {
         var owner = this,
-            { value, options, onKeyDown, onFocus, onBlur, onChange, onInit, htmlRef, ...propsToTransfer } = owner.props;
+            { value, component, options, onKeyDown, onFocus, onBlur, onChange, onInit, htmlRef, ...propsToTransfer } = owner.props;
 
-        if(this.props.children){
-            var childComponent = this.props.children.map(child => {
-                return React.cloneElement(child, {
-                    ref:htmlRef,
-                    value : owner.state.value,
-                    onKeyDown:owner.onKeyDown,
-                    onChange:owner.onChange,
-                    onFocus: owner.onFocus,
-                    onBlur: owner.onBlur,
-                    ...propsToTransfer,
-                    'data-cleave-ignore': [value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]
-                })
-            })
-            return <div>{childComponent}</div>
+        if(component){
+            return (
+                <component
+                    type="text"
+                    ref={htmlRef}
+                    value={owner.state.value}
+                    onKeyDown={owner.onKeyDown}
+                    onChange={owner.onChange}
+                    onFocus={owner.onFocus}
+                    onBlur={owner.onBlur}
+                    {...propsToTransfer}
+                    data-cleave-ignore={[value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]}
+                />
+            )
         }
 
         return (
