@@ -407,17 +407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	        if (component) {
-	            return React.createElement('component', _extends({
-	                type: 'text',
-	                ref: htmlRef,
-	                value: owner.state.value,
-	                onKeyDown: owner.onKeyDown,
-	                onChange: owner.onChange,
-	                onFocus: owner.onFocus,
-	                onBlur: owner.onBlur
-	            }, propsToTransfer, {
-	                'data-cleave-ignore': [value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]
-	            }));
+	            return { component: component };
 	        }
 
 	        return React.createElement('input', _extends({

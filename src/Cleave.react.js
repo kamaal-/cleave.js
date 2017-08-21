@@ -334,17 +334,7 @@ var Cleave = CreateReactClass({
 
         if(component){
             return (
-                <component
-                    type="text"
-                    ref={htmlRef}
-                    value={owner.state.value}
-                    onKeyDown={owner.onKeyDown}
-                    onChange={owner.onChange}
-                    onFocus={owner.onFocus}
-                    onBlur={owner.onBlur}
-                    {...propsToTransfer}
-                    data-cleave-ignore={[value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]}
-                />
+                {component}
             )
         }
 
