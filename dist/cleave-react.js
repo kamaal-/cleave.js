@@ -405,6 +405,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	            propsToTransfer = _objectWithoutProperties(_owner$props2, ['value', 'options', 'onKeyDown', 'onFocus', 'onBlur', 'onChange', 'onInit', 'htmlRef']);
 
 
+	        if (this.props.children) {
+	            var childComponent = this.props.children.map(function (child) {
+	                return React.cloneElement(child, _extends({
+	                    ref: htmlRef,
+	                    value: owner.state.value,
+	                    onKeyDown: owner.onKeyDown,
+	                    onChange: owner.onChange,
+	                    onFocus: owner.onFocus,
+	                    onBlur: owner.onBlur
+	                }, propsToTransfer, {
+	                    'data-cleave-ignore': [value, options, onFocus, onBlur, onKeyDown, onChange, onInit, htmlRef]
+	                }));
+	            });
+	            return React.createElement(
+	                'div',
+	                null,
+	                childComponent
+	            );
+	        }
+
 	        return React.createElement('input', _extends({
 	            type: 'text',
 	            ref: htmlRef,
