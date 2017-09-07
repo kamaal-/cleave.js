@@ -341,7 +341,15 @@ var Cleave = CreateReactClass({
         return (
             <input
                 type="text"
-                ref={htmlRef}
+                ref={function (ref) {
+                    owner.element = ref;
+
+                    if (!htmlRef) {
+                        return;
+                    }
+
+                    htmlRef.apply(this, arguments);
+                }}
                 value={owner.state.value}
                 onKeyDown={owner.onKeyDown}
                 onChange={owner.onChange}

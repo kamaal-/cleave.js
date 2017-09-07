@@ -412,7 +412,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return React.createElement('input', _extends({
 	            type: 'text',
-	            ref: htmlRef,
+	            ref: function ref(_ref) {
+	                owner.element = _ref;
+
+	                if (!htmlRef) {
+	                    return;
+	                }
+
+	                htmlRef.apply(this, arguments);
+	            },
 	            value: owner.state.value,
 	            onKeyDown: owner.onKeyDown,
 	            onChange: owner.onChange,
