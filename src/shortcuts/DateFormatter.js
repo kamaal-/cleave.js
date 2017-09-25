@@ -38,7 +38,7 @@ DateFormatter.prototype = {
                 switch (owner.datePattern[index]) {
                 case 'd':
                     if (sub === '00') {
-                        sub = '01';
+                        sub = '1';
                     } else if (parseInt(sub0, 10) > 3) {
                         sub = '0' + sub0;
                     } else if (parseInt(sub, 10) > 31) {
@@ -50,28 +50,22 @@ DateFormatter.prototype = {
                 case 'm':
                     if (sub === '00') {
                         sub = '01';
-                    } else if (parseInt(sub0, 10) > 1) {
-                        sub = '0' + sub0;
                     } else if (parseInt(sub, 10) > 12) {
                         sub = '12';
                     }
 
                     break;
                 case 'h':
-                    console.log(sub)
-                        if (sub === '00') {
-                            sub = '00';
-                        } else if (parseInt(sub0, 10) > 2) {
-                            sub = '0' + sub0;
-                        } else if (parseInt(sub, 10) > 23) {
-                            sub = '23';
-                        }
-                        break;
+                    if (sub === '00') {
+                        sub = '00';
+                    } else if (parseInt(sub, 10) > 23) {
+                        sub = '23';
+                    }
+                    break;
+
                 case 'mm':
                     if (sub === '00') {
                         sub = '00';
-                    } else if (parseInt(sub0, 10) > 5) {
-                        sub = '0' + sub0;
                     } else if (parseInt(sub, 10) > 59) {
                         sub = '59';
                     }
